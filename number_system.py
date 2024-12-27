@@ -60,12 +60,15 @@ match x:
         else:
             temp=temp
     case 3:
-        # a=[]
-        y=input("Enter binary number:")
-        y.rsplit("")
-        # for i in y:
-        #    a.append(y) 
-        print(y)
-# temp.reverse()
-# for i in temp:
-#     print(i,end="")
+        a=[]
+        b=[]
+        y=int(input("Enter binary number:"))
+        while (y>0):
+            a.append(y%10)
+            y=y//10
+        for i in range (len(a)):
+            b.append(a[i]*2**i)
+        temp.append(sum(b))
+temp.reverse()
+for i in temp:
+    print(i,end="")

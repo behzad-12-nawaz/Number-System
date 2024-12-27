@@ -7,13 +7,10 @@ match x:
             reminder=y % 2
             temp.append(reminder)
             y=y//2
-        if ((y/2)==0):
+        if (y==0):
             temp.append(0)
         else:
             temp.append(1)
-        temp.reverse()
-        for i in temp:
-            print(i,end="")
     case 1:
         y=int(input("Enter a number:"))
         while(y>1):
@@ -24,6 +21,51 @@ match x:
             temp.append(y)
         else:
             temp=temp
-        temp.reverse()
-        for i in temp:
-            print(i,end="")
+    case 2:
+        y=int(input("Enter a number:"))
+        while(y>1):
+            remainder=y % 16
+            match remainder:
+                case 10:
+                    temp.append("A")
+                case 11:
+                    temp.append("B")
+                case 12:
+                    temp.append("C")
+                case 13:
+                    temp.append("D")
+                case 14:
+                    temp.append("E")
+                case 15:
+                    temp.append("F")
+                case _:
+                    temp.append(remainder)
+            y=y//16
+        if(10>y>0):
+                temp.append(y)
+        elif(16>y>9):
+            match y:
+                case 10:
+                    temp.append("A")
+                case 11:
+                    temp.append("B")
+                case 12:
+                    temp.append("C")
+                case 13:
+                    temp.append("D")
+                case 14:
+                    temp.append("E")
+                case 15:
+                    temp.append("F")
+        else:
+            temp=temp
+    case 3:
+        # a=[]
+        y=input("Enter binary number:")
+        y.rsplit("")
+        # for i in y:
+        #    a.append(y) 
+        print(y)
+# temp.reverse()
+# for i in temp:
+#     print(i,end="")

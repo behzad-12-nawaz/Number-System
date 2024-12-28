@@ -90,36 +90,37 @@ match x:
             b.append(a[i]*8**i)
         temp.append(sum(b))
     case 5:
-        a=[]
-        b=[]
         y=input("Enter hexadecimal number:")
-        while (y>0):
-            a.append(y%10)
-            y=y//10
+        a=[char for char in y]
+        b=[None]*len(a)
+        k=[]
         for i in a:
-            if((0<=i<10) or (i=="A"=="B"=="C"=="D"=="E"=="F")):
+            if((i=="0"or i=="1"or i=="2"or i=="3"or i=="4"or i=="5"or i=="6"or i=="7"or i=="8"or i=="9"or i=="A"or i=="B"or i=="C"or i=="D"or i=="E"or i=="F")):
                 True
             else:
                 raise ValueError("Every Number should be between 0 & 9 and can have some alphabets like(A, B, C, D, E, F)")
-        for i in a:
-            match i:
+        for i,c in enumerate(a):
+            match c:
                 case "A":
-                    b[i]==10
+                    b[i]="10"
                 case "B":
-                    b[i]==11
+                    b[i]="11"
                 case "C":
-                    b[i]==12
+                    b[i]="12"
                 case "D":
-                    b[i]==13
+                    b[i]="13"
                 case "E":
-                    b[i]==14
+                    b[i]="14"
                 case "F":
-                    b[i]==15
+                    b[i]="15"
                 case _:
-                    b[i]==i
-        for i in range (len(a)):
-            b.append(a[i]*16**i)
-        temp.append(sum(b))
+                    b[i]=c
+        for i in range (len(b)):
+            b[i]=int(b[i])
+        b.reverse()
+        for i in range (len(b)):
+            k.append(b[i]*16**i)
+        temp.append(sum(k))
 temp.reverse()
 for i in temp:
     print(i,end="")

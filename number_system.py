@@ -66,8 +66,59 @@ match x:
         while (y>0):
             a.append(y%10)
             y=y//10
+        for i in a:
+            if(0<=i<2):
+                True
+            else:
+                raise ValueError("Every Number should be 0 or 1")
         for i in range (len(a)):
             b.append(a[i]*2**i)
+        temp.append(sum(b))
+    case 4:
+        a=[]
+        b=[]
+        y=int(input("Enter octal number:"))
+        while (y>0):
+            a.append(y%10)
+            y=y//10
+        for i in a:
+            if(0<=i<8):
+                True
+            else:
+                raise ValueError("Every Number should be between 0 & 7")
+        for i in range (len(a)):
+            b.append(a[i]*8**i)
+        temp.append(sum(b))
+    case 5:
+        a=[]
+        b=[]
+        y=input("Enter hexadecimal number:")
+        while (y>0):
+            a.append(y%10)
+            y=y//10
+        for i in a:
+            if((0<=i<10) or (i=="A"=="B"=="C"=="D"=="E"=="F")):
+                True
+            else:
+                raise ValueError("Every Number should be between 0 & 9 and can have some alphabets like(A, B, C, D, E, F)")
+        for i in a:
+            match i:
+                case "A":
+                    b[i]==10
+                case "B":
+                    b[i]==11
+                case "C":
+                    b[i]==12
+                case "D":
+                    b[i]==13
+                case "E":
+                    b[i]==14
+                case "F":
+                    b[i]==15
+                case _:
+                    b[i]==i
+        for i in range (len(a)):
+            b.append(a[i]*16**i)
         temp.append(sum(b))
 temp.reverse()
 for i in temp:

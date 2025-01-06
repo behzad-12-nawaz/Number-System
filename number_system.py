@@ -1,5 +1,7 @@
 x=int(input())
 temp=[]
+table_3=['000','001','010','011','100','101','110','111']
+table_4=['0000','0001','0010','0011','0100','0101','0110','0111','1000','1001','1010','1011','1100','1101','1110','1111']
 match x:
     case 0:
         y=int(input("Enter a number:"))
@@ -121,6 +123,34 @@ match x:
         for i in range (len(b)):
             k.append(b[i]*16**i)
         temp.append(sum(k))
+    case 6:
+        a=[]
+        groups=[]
+        y=input("Enter binary number:")
+        r_s=y[::-1]
+        for i in range(0, len(r_s), 3):
+            groups.append(r_s[i:i+3])  
+        for group in groups:
+            a.append(group[::-1])
+        a=a[::-1]
+        print(a)
+        for i in range(len(a)):
+            if(len(a[i])==3):
+                for b in range(len(table_3)):
+                    if (a[i]==table_3[b]):
+                        temp.append(b)
+            else:
+                if (len(a[i])==2):
+                    b='0'+a[i]
+                    for i in range(len(table_3)):
+                        if (b==table_3[i]):
+                            temp.append(i)
+                else:
+                    b='00'+a[i]
+                    for i in range(len(table_3)):
+                        if (b==table_3[i]):
+                            temp.append(i)
+                    
 temp.reverse()
 for i in temp:
     print(i,end="")

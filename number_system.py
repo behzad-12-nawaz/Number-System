@@ -150,7 +150,60 @@ match x:
                     for i in range(len(table_3)):
                         if (b==table_3[i]):
                             temp.append(i)
-                    
+        temp.reverse()
+    case 7:
+        a=[]
+        c=[]
+        groups=[]
+        y=input("Enter binary number:")
+        r_s=y[::-1]
+        for i in range(0, len(r_s), 4):
+            groups.append(r_s[i:i+4])  
+        for group in groups:
+            a.append(group[::-1])
+        a=a[::-1]
+        print(a)
+        for i in range(len(a)):
+            if(len(a[i])==4):
+                for b in range(len(table_4)):
+                    if (a[i]==table_4[b]):
+                        c.append(b)
+            else:
+                if (len(a[i])==3):
+                    b='0'+a[i]
+                    for i in range(len(table_4)):
+                        if (b==table_4[i]):
+                            c.append(i)
+                else:
+                    if(len(a[i])==2):    
+                        b='00'+a[i]
+                        for i in range(len(table_4)):
+                            if (b==table_4[i]):
+                                c.append(i)
+                    else:
+                        b='000'+a[i]
+                        for i in range(len(table_4)):
+                            if (b==table_4[i]):
+                                c.append(i)
+        for i in range(len(c)):
+            match c[i]:
+                case 10:
+                    temp.append('A')
+                case 11:
+                    temp.append('B')
+                case 12:
+                    temp.append('C')
+                case 13:
+                    temp.append('D')
+                case 14:
+                    temp.append('E')
+                case 15:
+                    temp.append('F')
+                case _:
+                    for b in range(len(table_4)):
+                        if (c[i]==b):
+                            temp.append(b)
+        temp.reverse()   
 temp.reverse()
 for i in temp:
     print(i,end="")

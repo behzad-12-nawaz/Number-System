@@ -214,6 +214,33 @@ match x:
             for i in range(len(table_3)):
                 if(b==i):
                     temp.append(table_3[b])
+    case 9:
+        a=[]
+        b=[]
+        y=input("Enter Hexadecimal number:")
+        for char in y:
+            a.append(char)
+        for i,c in enumerate(a):
+            match c:
+                case "A":
+                    b.append(10)
+                case "B":
+                    b.append(11)
+                case "C":
+                    b.append(12)
+                case "D":
+                    b.append(13)
+                case "E":
+                    b.append(14)
+                case "F":
+                    b.append(15)
+                case _:
+                    b.append(int(c))
+        for value in b:
+            for i in range(len(table_4)):
+                if(value==i):
+                    temp.append(table_4[value])
+        temp.reverse()
 temp.reverse()
 for i in temp:
     print(i,end="")

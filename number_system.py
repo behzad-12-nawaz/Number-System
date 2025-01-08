@@ -203,7 +203,17 @@ match x:
                     for b in range(len(table_4)):
                         if (c[i]==b):
                             temp.append(b)
-        temp.reverse()   
+        temp.reverse()
+    case 8:
+        a=[]
+        y=int(input("Enter octal number:"))
+        while(y>0):
+            a.append(y%10)
+            y=y//10
+        for b in a:
+            for i in range(len(table_3)):
+                if(b==i):
+                    temp.append(table_3[b])
 temp.reverse()
 for i in temp:
     print(i,end="")

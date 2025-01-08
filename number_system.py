@@ -241,6 +241,101 @@ match x:
                 if(value==i):
                     temp.append(table_4[value])
         temp.reverse()
+    case 10:
+        a=[]
+        b=[]
+        local=[]
+        y=int(input("Enter octal number:"))
+        while (y>0):
+            a.append(y%10)
+            y=y//10
+        for i in a:
+            if(0<=i<8):
+                True
+            else:
+                raise ValueError("Every Number should be between 0 & 7")
+        for i in range (len(a)):
+            b.append(a[i]*8**i)
+        local.append(sum(b))  
+        g=local[0]
+        while(g>1):
+            remainder=g % 16
+            match remainder:
+                case 10:
+                    temp.append("A")
+                case 11:
+                    temp.append("B")
+                case 12:
+                    temp.append("C")
+                case 13:
+                    temp.append("D")
+                case 14:
+                    temp.append("E")
+                case 15:
+                    temp.append("F")
+                case _:
+                    temp.append(remainder)
+            g=g//16
+        if(10>g>0):
+                temp.append(g)
+        if(16>g>9):
+            match g:
+                case 10:
+                    temp.append("A")
+                case 11:
+                    temp.append("B")
+                case 12:
+                    temp.append("C")
+                case 13:
+                    temp.append("D")
+                case 14:
+                    temp.append("E")
+                case 15:
+                    temp.append("F")
+        else:
+            temp=temp
+    case 11:
+        y=input("Enter hexadecimal number:")
+        a=[char for char in y]
+        b=[None]*len(a)
+        k=[]
+        local=[]
+        for i in a:
+            if((i=="0"or i=="1"or i=="2"or i=="3"or i=="4"or i=="5"or i=="6"or i=="7"or i=="8"or i=="9"or i=="A"or i=="B"or i=="C"or i=="D"or i=="E"or i=="F")):
+                True
+            else:
+                raise ValueError("Every Number should be between 0 & 9 and can have some alphabets like(A, B, C, D, E, F)")
+        for i,c in enumerate(a):
+            match c:
+                case "A":
+                    b[i]="10"
+                case "B":
+                    b[i]="11"
+                case "C":
+                    b[i]="12"
+                case "D":
+                    b[i]="13"
+                case "E":
+                    b[i]="14"
+                case "F":
+                    b[i]="15"
+                case _:
+                    b[i]=c
+        for i in range (len(b)):
+            b[i]=int(b[i])
+        b.reverse()
+        for i in range (len(b)):
+            k.append(b[i]*16**i)
+        local.append(sum(k))
+        g=local[0]
+        while(g>1):
+            reminder=g % 8
+            temp.append(reminder)
+            g=g//8
+        if(g>0):
+            temp.append(g)
+        else:
+            temp=temp
 temp.reverse()
 for i in temp:
     print(i,end="")
